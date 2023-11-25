@@ -1,1 +1,1 @@
-Redirecting, because ...reasons.
+Personal website. Just a bunch of links.
