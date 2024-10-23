@@ -31,7 +31,16 @@ div#main {
 	flex-flow: column nowrap;
 }
 
-div#pair {
+div#icon {
+	justify-content: center;
+	justify-items: center;
+	align-content: center;
+	align-items: center;
+	display: grid;
+	padding: 1vw;
+}
+
+div#title-pair {
 	justify-content: center;
 	justify-items: center;
 	align-content: center;
@@ -44,6 +53,8 @@ div#title {
 	justify-items: center;
 	align-content: center;
 	align-items: center;
+	letter-spacing: 0.8vw;
+	margin: 4vw;
 }
 
 div#row {
@@ -56,13 +67,13 @@ div#row {
 }
 
 div#footer {
-	justify-content: center;
+	justify-content: right;
 	justify-items: center;
 	align-content: center;
 	align-items: center;
 	display: flex;
 	flex-flow: row nowrap;
-	padding-left: 10vw;
+	margin: 2vw;
 }
 
 h1, h2, p, a:link, a:visited, a:hover, a:active {
@@ -73,73 +84,64 @@ h1, h2, p, a:link, a:visited, a:hover, a:active {
 	text-decoration: none;
 }
 
+h2 {
+	font-size: 1.5vw;
+	color:#606060FF;
+}
+
+p, a:link, a:visited, a:hover, a:active {
+	font-size: 1vw;
+	color:#a0a0a0FF;
+}
+
+
+
 @media (orientation: landscape) {
-	div#pair {
-		padding: 1vw;
-	}
 
 	div#title {
 		padding-right: 6vw;
 		display: flex;
 		flex-flow: row nowrap;
+		margin-left: 0vw;
 	}
 
 	h1 {
-		font-size: 5vw;
+		font-size: 4vw;
 	}
 
-	h2 {
-		font-size: 2vw;
-		margin-top: -3.5vw;
-	}
-
-	p, a:link, a:visited, a:hover, a:active {
-		font-size: 1.5vw;
-	}
-
-	img#header {
-		height: 8vw;
-		width: 8vw;
+	img#header-image {
+		height: 6vw;
+		width: 6vw;
 		padding-right: 4vw;
 	}
 	
 	img#link {
-		height: 6vw;
-		width: 6vw;
+		height: 4vw;
+		width: 4vw;
 		padding: 0.3vw;
 	}
 }
 
+
+
 @media (orientation: portrait) {
-	div#pair {
-		padding: 1vh;
-	}
 
 	div#title {
 		display: grid;
 	}
 
 	h1 {
-		font-size: 5vh;
+		font-size: 5vw;
 	}
 
-	h2 {
-		font-size: 2vh;
-		margin-top: -3.5vh;
-	}
-
-	p, a:link, a:visited, a:hover, a:active {
-		font-size: 1.5vh;
-	}
-
-	img#header {
-		height: 10vh;
-		width: 10vh;
+	img#header-image {
+		height: 10vw;
+		width: 10vw;
 	}
 	
 	img#link {
-		height: 8vh;
-		width: 8vh;
-		padding: 0.4vh;
+		height: 4vw;
+		width: 4vw;
+		padding: 0.3vw;
 	}
 }
