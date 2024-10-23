@@ -62,7 +62,7 @@ div#footer {
 	align-items: center;
 	display: flex;
 	flex-flow: row nowrap;
-	marign-right: -10vw;
+	padding-left: 10vw;
 }
 
 h1, h2, p, a:link, a:visited, a:hover, a:active {
@@ -79,7 +79,7 @@ h1, h2, p, a:link, a:visited, a:hover, a:active {
 	}
 
 	div#title {
-		padding-right: 8vw;
+		padding-right: 6vw;
 		display: flex;
 		flex-flow: row nowrap;
 	}
