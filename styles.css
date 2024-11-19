@@ -12,7 +12,6 @@ html {
 }
 
 body {
- body {
 	font-family: "Noto Sans Mono", monospace; 
 	font-weight: 400;
 	justify-content: center;
@@ -85,18 +84,17 @@ h1, h2, p, a:link, a:visited, a:hover, a:active {
 }
 
 h2 {
-	font-size: 1.5vw;
 	color:#606060FF;
-}
-
-p, a:link, a:visited, a:hover, a:active {
-	font-size: 1vw;
-	color:#a0a0a0FF;
 }
 
 
 
 @media (orientation: landscape) {
+
+	div#row {
+		padding-left: 30vw;
+		padding-right: 30vw;
+	}
 
 	div#title {
 		padding-right: 6vw;
@@ -106,7 +104,16 @@ p, a:link, a:visited, a:hover, a:active {
 	}
 
 	h1 {
-		font-size: 4vw;
+		font-size: 3vw;
+	}
+
+	h2 {
+		font-size: 1.5vw;
+	}
+
+	p, a:link, a:visited, a:hover, a:active {
+		font-size: 0.8vw;
+		color:#a0a0a0FF;
 	}
 
 	img#header-image {
@@ -116,8 +123,8 @@ p, a:link, a:visited, a:hover, a:active {
 	}
 	
 	img#link {
-		height: 4vw;
-		width: 4vw;
+		height: 2vw;
+		width: 2vw;
 		padding: 0.3vw;
 	}
 }
@@ -126,12 +133,26 @@ p, a:link, a:visited, a:hover, a:active {
 
 @media (orientation: portrait) {
 
+	div#row {
+		padding-left: 15vw;
+		padding-right: 15vw;
+	}
+
 	div#title {
 		display: grid;
 	}
 
 	h1 {
-		font-size: 5vw;
+		font-size: 4vw;
+	}
+
+	h2 {
+		font-size: 2.5vw;
+	}
+
+	p, a:link, a:visited, a:hover, a:active {
+		font-size: 2vw;
+		color:#a0a0a0FF;
 	}
 
 	img#header-image {
@@ -142,6 +163,6 @@ p, a:link, a:visited, a:hover, a:active {
 	img#link {
 		height: 4vw;
 		width: 4vw;
-		padding: 0.3vw;
+		padding: 1.2vw;
 	}
 }
