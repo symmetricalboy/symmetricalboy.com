@@ -64,7 +64,7 @@ body {
   display: flex;
   flex-direction: column; /* Stack image and text on small screens */
   align-items: center;
-  margin-bottom: calc(var(--spacing-unit) * 2.5);
+  margin-bottom: calc(var(--spacing-unit) * 3.5); /* Increased from 2.5 */
 }
 
 #header-image {
@@ -92,13 +92,13 @@ body {
 /* === Main Content === */
 .content {
   width: 100%;
-  margin-bottom: calc(var(--spacing-unit) * 2.5);
+  margin-bottom: calc(var(--spacing-unit) * 3.5); /* Increased from 2.5 */
 }
 
 .description,
 .links-intro,
 .outro {
-  margin-bottom: calc(var(--spacing-unit) * 1.5);
+  margin-bottom: calc(var(--spacing-unit) * 2); /* Increased from 1.5 */
   max-width: 65ch; /* Limit line length for readability */
   margin-left: auto;
   margin-right: auto;
@@ -121,7 +121,7 @@ body {
   grid-template-columns: repeat(5, 1fr);
   /* Adjust gap based on viewport width for smaller screens */
   gap: clamp(0.5rem, 3vw, 1.5rem);
-  margin-bottom: calc(var(--spacing-unit) * 1.5);
+  margin-bottom: calc(var(--spacing-unit) * 2); /* Increased from 1.5 */
   justify-content: center;
   width: 100%; /* Ensure grid takes full container width */
 }
