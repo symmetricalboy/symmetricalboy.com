@@ -49,9 +49,10 @@ body {
   width: 100%;
   max-width: 900px; /* Max width for content */
   padding: calc(var(--spacing-unit) * 2);
-  background-color: rgba(10, 10, 10, 0.8); /* Slightly transparent background for content */
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  /* Removed background-color and box-shadow for transparency */
+  /* background-color: rgba(10, 10, 10, 0.8); */
+  /* border-radius: 8px; */ /* Radius might look odd without background */
+  /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -116,10 +117,13 @@ body {
 /* === Icon Navigation === */
 .icon-nav {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Responsive grid */
-  gap: calc(var(--spacing-unit) * 1.5);
+  /* Force 5 columns */
+  grid-template-columns: repeat(5, 1fr);
+  /* Adjust gap based on viewport width for smaller screens */
+  gap: clamp(0.5rem, 3vw, 1.5rem);
   margin-bottom: calc(var(--spacing-unit) * 1.5);
   justify-content: center;
+  width: 100%; /* Ensure grid takes full container width */
 }
 
 .icon-link {
@@ -128,14 +132,19 @@ body {
   align-items: center;
   text-decoration: none;
   color: var(--color-text-secondary);
-  font-size: 0.8rem;
+  /* Adjust font size based on viewport */
+  font-size: clamp(0.65rem, 2vw, 0.8rem);
   transition: transform 0.2s ease-out, color 0.2s ease-out;
+  text-align: center; /* Ensure text is centered */
+  overflow-wrap: break-word; /* Allow text to wrap if needed */
+  word-break: break-word;
 }
 
 .icon-link img {
-  width: 2.8rem;
-  height: 2.8rem;
-  margin-bottom: 0.5rem;
+  /* Adjust width/height using clamp for responsiveness */
+  width: clamp(2rem, 7vw, 2.8rem);
+  height: clamp(2rem, 7vw, 2.8rem);
+  margin-bottom: 0.4rem; /* Slightly reduce margin */
   transition: filter 0.2s ease-out;
 }
 
@@ -147,7 +156,6 @@ body {
 .icon-link:hover img {
   filter: brightness(1.1) saturate(1.1);
 }
-
 
 /* === Footer === */
 .footer {
@@ -218,17 +226,20 @@ body {
   }
 
   .icon-nav {
-     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-     gap: calc(var(--spacing-unit) * 2);
+     /* Explicitly keep 5 columns, adjust gap */
+     grid-template-columns: repeat(5, 1fr);
+     gap: clamp(1rem, 2.5vw, 2rem); /* Adjust gap for medium screens */
   }
 
   .icon-link img {
-    width: 3.5rem;
-    height: 3.5rem;
+    /* Adjust size for medium screens */
+    width: clamp(3rem, 6vw, 3.5rem);
+    height: clamp(3rem, 6vw, 3.5rem);
   }
 
   .icon-link {
-    font-size: 0.9rem;
+    /* Adjust font size for medium screens */
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
   }
 
   .footer {
