@@ -9,18 +9,28 @@ html {
 	-o-background-size: cover;
 	background-size: cover;
 	-webkit-tap-highlight-color: #00000000;
+  /* Base font size for rem units */
+  font-size: 16px; 
 }
 
 body {
-	font-family: "Noto Sans Mono", monospace; 
+	font-family: "Noto Sans Mono", monospace;
 	font-weight: 400;
-	justify-content: center;
-	justify-items: center;
-	align-content: center;
-	align-items: center;
-	display: block;
+	/* Remove direct centering styles, handled by #column */
+	/* justify-content: center; */
+	/* justify-items: center; */
+	/* align-content: center; */
+	/* align-items: center; */
+	/* display: block; */
+  margin: 0; /* Remove default body margin */
+  padding: 1rem; /* Add some padding around the body */
+  display: flex; /* Use flex to center #column */
+  justify-content: center; /* Center #column horizontally */
+  min-height: 100vh; /* Ensure body takes full height */
+  box-sizing: border-box;
 }
 
+/* Keep #main for potential future use, but current structure uses #column */
 div#main {
 	justify-content: center;
 	justify-items: center;
@@ -30,13 +40,27 @@ div#main {
 	flex-flow: column nowrap;
 }
 
+/* New styles for the main content column */
+div#column {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items within the column */
+  width: 100%; /* Take full width available */
+  max-width: 960px; /* Limit maximum width for readability */
+  /* margin: 0 auto; /* Center the column */ /* Centering handled by body flex */
+  padding: 1rem; /* Add padding inside the column */
+  box-sizing: border-box;
+}
+
+
 div#icon {
 	justify-content: center;
 	justify-items: center;
 	align-content: center;
 	align-items: center;
 	display: grid;
-	padding: 1vw;
+	padding: 0.5rem; /* Use rem for padding */
+  text-align: center; /* Center text below icon */
 }
 
 div#title-pair {
@@ -45,6 +69,7 @@ div#title-pair {
 	align-content: center;
 	align-items: center;
 	display: grid;
+  margin-bottom: 1rem; /* Add space below title */
 }
 
 div#title {
@@ -52,8 +77,11 @@ div#title {
 	justify-items: center;
 	align-content: center;
 	align-items: center;
-	letter-spacing: 0.8vw;
-	margin: 4vw;
+  display: flex; /* Use flex for alignment */
+  flex-flow: column wrap; /* Default to column layout */
+	letter-spacing: 0.2rem; /* Adjust letter spacing */
+	margin-bottom: 2rem; /* Use rem for margin */
+  text-align: center;
 }
 
 div#row {
@@ -62,107 +90,132 @@ div#row {
 	align-content: center;
 	align-items: center;
 	display: flex;
-	flex-flow: row nowrap;
+	flex-flow: row wrap; /* Allow items to wrap */
+  width: 100%; /* Ensure row takes full width of parent */
+  margin-bottom: 1rem; /* Add space between rows */
 }
 
-div#footer {
-	justify-content: right;
-	justify-items: center;
-	align-content: center;
-	align-items: center;
-	display: flex;
-	flex-flow: row nowrap;
-	margin: 2vw;
-}
+/* Remove footer styles as it's integrated into #column */
+/* div#footer { ... } */
 
 h1, h2, p, a:link, a:visited, a:hover, a:active {
 	text-justify: center;
 	text-align: center;
-	font-family: monospace;
+	/* font-family: monospace; */ /* Already set on body */
 	color: #FFFFFFFF;
 	text-decoration: none;
+  margin: 0.5rem 0; /* Add default vertical margin */
+}
+
+h1 {
+  font-size: 2.5rem; /* Use rem */
+  letter-spacing: 0.3rem;
+  margin-bottom: 0; /* Adjust margin for title */
 }
 
 h2 {
-	color:#606060FF;
+	color:#a0a0a0FF; /* Match paragraph color */
+  font-size: 1.2rem; /* Use rem */
+  margin-top: -0.5rem; /* Adjust margin relative to h1 */
+  letter-spacing: 0.15rem;
+}
+
+p, a {
+  font-size: 1rem; /* Base font size */
+  color: #a0a0a0FF;
+  line-height: 1.6; /* Improve readability */
+}
+
+a {
+  color: #cacaca; /* Slightly brighter color for links */
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: #ffffff;
+}
+
+p i { /* Style italic text within paragraphs */
+  color: #8a8a8a; /* Slightly different grey for emphasis */
+}
+
+img#header-image {
+  height: 5rem; /* Use rem */
+  width: 5rem; /* Use rem */
+  margin-bottom: 1rem; /* Space below image */
+}
+
+img#link {
+  height: 2.5rem; /* Use rem */
+  width: 2.5rem; /* Use rem */
+  padding: 0.25rem; /* Use rem */
+  display: block; /* Center image within link */
+  margin: 0 auto 0.5rem auto; /* Center and add space below */
 }
 
 
+/* Remove orientation-based queries */
+/* @media (orientation: landscape) { ... } */
+/* @media (orientation: portrait) { ... } */
 
-@media (orientation: landscape) {
+/* --- Responsive Breakpoints --- */
 
-	div#row {
-		padding-left: 30vw;
-		padding-right: 30vw;
-	}
+/* Small devices (phones, 600px and up) */
+@media (min-width: 600px) {
+  html {
+    font-size: 17px; /* Slightly larger base font */
+  }
 
-	div#title {
-		padding-right: 6vw;
-		display: flex;
-		flex-flow: row nowrap;
-		margin-left: 0vw;
-	}
+  div#title {
+    flex-flow: row nowrap; /* Title side-by-side with image */
+    text-align: left; /* Align text left */
+    align-items: center; /* Align items vertically */
+  }
 
-	h1 {
-		font-size: 3vw;
-	}
+  img#header-image {
+    margin-right: 2rem; /* Space between image and text */
+    margin-bottom: 0; /* Remove bottom margin */
+    height: 6rem;
+    width: 6rem;
+  }
 
-	h2 {
-		font-size: 1.5vw;
-	}
+  div#title-pair {
+    align-items: flex-start; /* Align text block items left */
+    margin-bottom: 0;
+  }
 
-	p, a:link, a:visited, a:hover, a:active {
-		font-size: 0.8vw;
-		color:#a0a0a0FF;
-	}
+  h1 {
+    font-size: 3rem;
+  }
 
-	img#header-image {
-		height: 6vw;
-		width: 6vw;
-		padding-right: 4vw;
-	}
-	
-	img#link {
-		height: 2vw;
-		width: 2vw;
-		padding: 0.3vw;
-	}
+  h2 {
+    font-size: 1.5rem;
+    margin-top: -0.8rem; /* Adjust for larger h1 */
+  }
+
+  img#link {
+    height: 3rem;
+    width: 3rem;
+  }
 }
 
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  html {
+    font-size: 18px;
+  }
 
+  p, a {
+    font-size: 1.1rem;
+  }
+}
 
-@media (orientation: portrait) {
-
-	div#row {
-		padding-left: 15vw;
-		padding-right: 15vw;
-	}
-
-	div#title {
-		display: grid;
-	}
-
-	h1 {
-		font-size: 4vw;
-	}
-
-	h2 {
-		font-size: 2.5vw;
-	}
-
-	p, a:link, a:visited, a:hover, a:active {
-		font-size: 2vw;
-		color:#a0a0a0FF;
-	}
-
-	img#header-image {
-		height: 10vw;
-		width: 10vw;
-	}
-	
-	img#link {
-		height: 4vw;
-		width: 4vw;
-		padding: 1.2vw;
-	}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+   h1 {
+     font-size: 3.5rem;
+   }
+   h2 {
+     font-size: 1.7rem;
+   }
 }
