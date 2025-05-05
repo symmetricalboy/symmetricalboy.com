@@ -161,7 +161,7 @@ img#link {
 /* --- Responsive Breakpoints --- */
 
 /* Small devices (phones, now up to 768px) */
-@media (min-width: 768px) { /* Increased from 600px */
+@media (min-width: 512px) { /* Increased from 600px */
   html {
     font-size: 17px; /* Slightly larger base font */
   }
@@ -200,7 +200,7 @@ img#link {
 }
 
 /* Medium devices (tablets, 768px and up) - Styles here will be combined with the above */
-@media (min-width: 768px) {
+@media (min-width: 512px) {
   html {
     font-size: 18px;
   }
@@ -211,7 +211,7 @@ img#link {
 }
 
 /* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
+@media (min-width: 768px) {
    h1 {
      font-size: 3.5rem;
    }
