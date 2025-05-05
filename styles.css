@@ -1,221 +1,253 @@
+/* === CSS Reset === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* === Variables === */
+:root {
+  --color-background: #0a0a0a;
+  --color-text: #e0e0e0;
+  --color-text-secondary: #a0a0a0;
+  --color-text-muted: #646464;
+  --color-accent: #ffffff;
+  --font-family-main: "Noto Sans Mono", monospace;
+  --base-font-size: 16px;
+  --spacing-unit: 1rem;
+}
+
+/* === Base Styles === */
 html {
-	background-color: #000000FF;
-	background-image: url('/bg.gif');
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-attachment: fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-	-webkit-tap-highlight-color: #00000000;
-  /* Base font size for rem units */
-  font-size: 16px; 
+  font-size: var(--base-font-size);
+  background-color: var(--color-background);
+  background-image: url('/bg.gif');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  color-scheme: dark;
 }
 
 body {
-	font-family: "Noto Sans Mono", monospace;
-	font-weight: 400;
-	/* Remove direct centering styles, handled by #column */
-	/* justify-content: center; */
-	/* justify-items: center; */
-	/* align-content: center; */
-	/* align-items: center; */
-	/* display: block; */
-  margin: 0; /* Remove default body margin */
-  padding: 1rem; /* Add some padding around the body */
-  display: flex; /* Use flex to center #column */
-  justify-content: center; /* Center #column horizontally */
-  min-height: 100vh; /* Ensure body takes full height */
-  box-sizing: border-box;
+  font-family: var(--font-family-main);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex; /* For centering the container */
+  justify-content: center;
+  align-items: center;
+  padding: calc(var(--spacing-unit) * 1.5);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* Keep #main for potential future use, but current structure uses #column */
-div#main {
-	justify-content: center;
-	justify-items: center;
-	align-content: center;
-	align-items: center;
-	display: flex;
-	flex-flow: column nowrap;
-}
-
-/* New styles for the main content column */
-div#column {
+.container {
+  width: 100%;
+  max-width: 900px; /* Max width for content */
+  padding: calc(var(--spacing-unit) * 2);
+  background-color: rgba(10, 10, 10, 0.8); /* Slightly transparent background for content */
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center items within the column */
-  width: 100%; /* Take full width available */
-  max-width: 960px; /* Limit maximum width for readability */
-  /* margin: 0 auto; /* Center the column */ /* Centering handled by body flex */
-  padding: 1rem; /* Add padding inside the column */
-  box-sizing: border-box;
-}
-
-
-div#icon {
-	justify-content: center;
-	justify-items: center;
-	align-content: center;
-	align-items: center;
-	display: grid;
-	padding: 0.5rem; /* Use rem for padding */
-  text-align: center; /* Center text below icon */
-}
-
-div#title-pair {
-	justify-content: center;
-	justify-items: center;
-	align-content: center;
-	align-items: center;
-	display: grid;
-  margin-bottom: 1rem; /* Add space below title */
-}
-
-div#title {
-	justify-content: center;
-	justify-items: center;
-	align-content: center;
-	align-items: center;
-  display: flex; /* Use flex for alignment */
-  flex-flow: column wrap; /* Default to column layout */
-	letter-spacing: 0.2rem; /* Adjust letter spacing */
-	margin-bottom: 2rem; /* Use rem for margin */
+  align-items: center;
   text-align: center;
 }
 
-div#row {
-	justify-content: center;
-	justify-items: center;
-	align-content: center;
-	align-items: center;
-	display: flex;
-	flex-flow: row wrap; /* Allow items to wrap */
-  width: 100%; /* Ensure row takes full width of parent */
-  margin-bottom: 1rem; /* Add space between rows */
+/* === Header === */
+.header {
+  display: flex;
+  flex-direction: column; /* Stack image and text on small screens */
+  align-items: center;
+  margin-bottom: calc(var(--spacing-unit) * 2.5);
 }
 
-/* Remove footer styles as it's integrated into #column */
-/* div#footer { ... } */
-
-h1, h2, p, a:link, a:visited, a:hover, a:active {
-	text-justify: center;
-	text-align: center;
-	/* font-family: monospace; */ /* Already set on body */
-	color: #FFFFFFFF;
-	text-decoration: none;
-  margin: 0.5rem 0; /* Add default vertical margin */
+#header-image {
+  width: 6rem;
+  height: 6rem;
+  margin-bottom: var(--spacing-unit);
+  border-radius: 50%; /* Make avatar circular */
 }
 
-h1 {
-  font-size: 2.5rem; /* Use rem */
-  letter-spacing: 0.3rem;
-  margin-bottom: 0; /* Adjust margin for title */
+.title-group h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.1em;
 }
 
-h2 {
-	color:#a0a0a0FF; /* Match paragraph color */
-  font-size: 1.2rem; /* Use rem */
-  margin-top: -0.5rem; /* Adjust margin relative to h1 */
-  letter-spacing: 0.15rem;
+.title-group h2 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.05em;
 }
 
-p, a {
-  font-size: 1rem; /* Base font size */
-  color: #a0a0a0FF;
-  line-height: 1.6; /* Improve readability */
+/* === Main Content === */
+.content {
+  width: 100%;
+  margin-bottom: calc(var(--spacing-unit) * 2.5);
 }
 
-a {
-  color: #cacaca; /* Slightly brighter color for links */
-  transition: color 0.2s ease-in-out;
+.description,
+.links-intro,
+.outro {
+  margin-bottom: calc(var(--spacing-unit) * 1.5);
+  max-width: 65ch; /* Limit line length for readability */
+  margin-left: auto;
+  margin-right: auto;
 }
 
-a:hover {
-  color: #ffffff;
+.description i,
+.outro i {
+  color: var(--color-text-secondary);
 }
 
-p i { /* Style italic text within paragraphs */
-  color: #8a8a8a; /* Slightly different grey for emphasis */
+.links-intro {
+  font-weight: 600;
+  color: var(--color-text);
 }
 
-img#header-image {
-  height: 5rem; /* Use rem */
-  width: 5rem; /* Use rem */
-  margin-bottom: 1rem; /* Space below image */
+/* === Icon Navigation === */
+.icon-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Responsive grid */
+  gap: calc(var(--spacing-unit) * 1.5);
+  margin-bottom: calc(var(--spacing-unit) * 1.5);
+  justify-content: center;
 }
 
-img#link {
-  height: 2.5rem; /* Use rem */
-  width: 2.5rem; /* Use rem */
-  padding: 0.25rem; /* Use rem */
-  display: block; /* Center image within link */
-  margin: 0 auto 0.5rem auto; /* Center and add space below */
+.icon-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  font-size: 0.8rem;
+  transition: transform 0.2s ease-out, color 0.2s ease-out;
+}
+
+.icon-link img {
+  width: 2.8rem;
+  height: 2.8rem;
+  margin-bottom: 0.5rem;
+  transition: filter 0.2s ease-out;
+}
+
+.icon-link:hover {
+  color: var(--color-accent);
+  transform: translateY(-3px);
+}
+
+.icon-link:hover img {
+  filter: brightness(1.1) saturate(1.1);
 }
 
 
-/* Remove orientation-based queries */
-/* @media (orientation: landscape) { ... } */
-/* @media (orientation: portrait) { ... } */
+/* === Footer === */
+.footer {
+  width: 100%;
+  margin-top: var(--spacing-unit);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: calc(var(--spacing-unit) * 1.5);
+}
 
-/* --- Responsive Breakpoints --- */
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: calc(var(--spacing-unit) * 2);
+  margin-bottom: var(--spacing-unit);
+  flex-wrap: wrap; /* Allow links to wrap */
+}
 
-/* Small devices (phones, now up to 768px) */
-@media (min-width: 512px) { /* Increased from 600px */
-  html {
-    font-size: 17px; /* Slightly larger base font */
+.footer-links a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease-out;
+}
+
+.footer-links a:hover {
+  color: var(--color-accent);
+}
+
+.copyright i {
+  font-style: normal; /* Keep copyright text normal */
+}
+
+/* === Responsive Adjustments === */
+
+/* Medium screens and up (tablets, small desktops) */
+@media (min-width: 600px) {
+  :root {
+    --base-font-size: 17px;
   }
 
-  div#title {
-    flex-flow: row nowrap; /* Title side-by-side with image */
-    text-align: left; /* Align text left */
-    align-items: center; /* Align items vertically */
+  .container {
+    padding: calc(var(--spacing-unit) * 3);
   }
 
-  img#header-image {
-    margin-right: 2rem; /* Space between image and text */
-    margin-bottom: 0; /* Remove bottom margin */
-    height: 6rem;
-    width: 6rem;
+  .header {
+    flex-direction: row; /* Image and text side-by-side */
+    text-align: left;
   }
 
-  div#title-pair {
-    align-items: flex-start; /* Align text block items left */
+  #header-image {
+    width: 7rem;
+    height: 7rem;
+    margin-right: calc(var(--spacing-unit) * 2);
     margin-bottom: 0;
   }
 
-  h1 {
-    font-size: 3rem;
+  .title-group {
+    align-self: center; /* Align text vertically */
   }
 
-  h2 {
+  .title-group h1 {
+    font-size: 2.8rem;
+  }
+
+  .title-group h2 {
+    font-size: 1.3rem;
+  }
+
+  .icon-nav {
+     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+     gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .icon-link img {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .icon-link {
+    font-size: 0.9rem;
+  }
+
+  .footer {
+    font-size: 0.9rem;
+  }
+}
+
+/* Large screens and up (desktops) */
+@media (min-width: 900px) {
+  :root {
+    --base-font-size: 18px;
+  }
+
+  .title-group h1 {
+    font-size: 3.2rem;
+  }
+
+  .title-group h2 {
     font-size: 1.5rem;
-    margin-top: -0.8rem; /* Adjust for larger h1 */
-  }
-
-  img#link {
-    height: 3rem;
-    width: 3rem;
   }
 }
 
-/* Medium devices (tablets, 768px and up) - Styles here will be combined with the above */
-@media (min-width: 512px) {
-  html {
-    font-size: 18px;
-  }
-
-  p, a {
-    font-size: 1.1rem;
-  }
-}
-
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 768px) {
-   h1 {
-     font-size: 3.5rem;
-   }
-   h2 {
-     font-size: 1.7rem;
-   }
-}
