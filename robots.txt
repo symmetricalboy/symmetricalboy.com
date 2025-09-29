@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /privacy/
+Disallow: /discord/
+Disallow: /telegram/
+Disallow: /saved/
+Disallow: /*.html$
+Disallow: /*.css$
+Disallow: /*.png$
+Disallow: /*.gif$
+Disallow: /*.svg$
