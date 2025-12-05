@@ -254,7 +254,7 @@ body {
 
   .icon-nav {
     /* Explicitly keep 5 columns, adjust gap */
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: clamp(1rem, 2.5vw, 2rem); /* Adjust gap for medium screens */
   }
 
